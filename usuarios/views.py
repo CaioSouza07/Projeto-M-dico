@@ -23,6 +23,11 @@ def cadastro(request):
             print("errodeLEN")
             return redirect("/usuarios/cadastro/")
         
+        users = User.objects.filter(username = username)
+
+        if users.exists() == True:
+            return redirect('/usuarios/cadastro/')
+        
         user = User.objects.create_user(
             username = username,
             email = email ,
