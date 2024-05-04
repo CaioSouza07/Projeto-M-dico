@@ -44,4 +44,6 @@ def cadastro(request):
 def login_view(request):
     if request.method == "GET":
         return render(request, 'login.html')
+    elif request.method == "POST":
+        return HttpResponse("Deu certo")
 
