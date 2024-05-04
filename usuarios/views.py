@@ -39,5 +39,9 @@ def cadastro(request):
             password = senha
         )
 
-        return redirect("/usuarios/login")
+        return redirect("/usuarios/login/")
+
+def login_view(request):
+    if request.method == "GET":
+        return render(request, 'login.html')
 
