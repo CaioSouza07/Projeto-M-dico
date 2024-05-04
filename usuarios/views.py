@@ -34,5 +34,5 @@ def cadastro(request):
             password = senha
         )
 
-        return HttpResponse("Deu certinho")
+        return redirect("/usuarios/login")
 
