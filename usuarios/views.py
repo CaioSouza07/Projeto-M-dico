@@ -42,6 +42,7 @@ def cadastro(request):
         return redirect("/usuarios/login/")
 
 def login_view(request):
+    
     if request.method == "GET":
         return render(request, 'login.html')
     
