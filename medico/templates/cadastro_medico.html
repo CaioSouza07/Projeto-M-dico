@@ -12,8 +12,8 @@
   <br />
   <div class="row">
     <div class="col-md-8">
-      <p class="p-bold">Olá, <span class="color-dark"></span></p>
-      <p class="p-bold">Vamos realizar seu cadastro médico legal.</p>
+      <p class="p-bold">Olá, <span class="color-dark">{{request.user}}</span></p>
+      <p class="p-bold">Vamos realizar seu cadastro médico legal.{{teste}}</p>
       {% if messages %}
       <br />
       {% for message in messages %}
