@@ -4,4 +4,4 @@ from django.shortcuts import render , redirect , HttpResponse
 
 def cadastro_medico(request):
     if request.method == "GET":
-        return HttpResponse("oiiiiiiiiiiiiiiiii isaaaa da minha vidaaaaaaaaaaaaa")
+        return render(request , "cadastro_medico.html")
