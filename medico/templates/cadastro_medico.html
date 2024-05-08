@@ -3,6 +3,7 @@
 
 {% block 'head' %}
 <link rel="stylesheet" href="{% static 'usuarios/css/usuarios.css' %}" />
+<link rel="stylesheet" href="{% static 'medicos/css/cadastro_medico.css' %}"/>
 {% endblock 'head' %} 
 
 {% block 'body' %}
@@ -19,7 +20,7 @@
       <section class="alert {{message.tags}}">{{message}}</section>
       {% endfor %}
        {% endif %}
-       
+
       <br />
       <form action="#" method="post" enctype="multipart/form-data">
         <div class="row">
