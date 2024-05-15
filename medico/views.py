@@ -1,20 +1,22 @@
 from django.shortcuts import render , redirect , HttpResponse
-from .models import Especialidades, DadosMedico
+from .models import Especialidades, DadosMedico, is_medico
 from django.contrib import messages
 from django.contrib.messages import constants
+
 
 # Create your views here.
 
 def cadastro_medico(request):
 
-    dm = DadosMedico.objects.filter(user = request.user).exists()
+    dm = is_medico(request.user)
+    print(dm)
     if dm == True:
         messages.add_message(request, constants.WARNING, 'Você já tem cadastro como médico!')
         return redirect('/medicos/abrir_horario')
 
     if request.method == "GET":
         especialidades = Especialidades.objects.all()
-        print(request.user)
+        
         return render(request , "cadastro_medico.html" , {'especialidades': especialidades})
     
     elif request.method == "POST":
@@ -30,7 +32,7 @@ def cadastro_medico(request):
         foto = request.FILES.get('foto')
         especialidade = request.POST.get('especialidade') 
         descricao = request.POST.get('descricao')
-        valor_consulta = request.POST.get('valor_consulta')
+        valorConsulta = request.POST.get('valor_consulta')
 
         dados_medico = DadosMedico(
             crm = crm,
@@ -44,7 +46,7 @@ def cadastro_medico(request):
             foto = foto,
             especialidade_id = especialidade,
             descricao = descricao,
-            valor_consulta = valor_consulta,
+            valorConsulta = valorConsulta,
             user = request.user
         )
 
